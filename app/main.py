@@ -1,21 +1,42 @@
-from fastapi import FastAPI
-from sqlmodel import SQLModel, create_engine, Session, select, Field
+from fastapi import FastAPI, HTTPException
+from sqlmodel import SQLModel, create_engine, Session, select, Field, Column, JSON
 from fastapi.middleware.cors import CORSMiddleware
-from typing import Optional
+from typing import Optional, List
 
-class Experiment(SQLModel, table = True):
-    id: Optional[int] = Field(default = None, primary_key = True)
+class ExperimentBase(SQLModel):
     title: str
     date: str
     name: str
 
     introduction: str
     hypothesis: str
-    materials: str
+    materials: List[str] = Field(sa_column = Column(JSON))
     method: str
     results: str
     discussion: str
     conclusion: str
+
+class ExperimentUpdate(SQLModel):
+    title: Optional[str] = None
+    date: Optional[str] = None
+    name: Optional[str]= None
+
+    introduction: Optional[str] = None
+    hypothesis: Optional[str] = None
+    materials: Optional[List[str]] = None
+    method: Optional[str] = None
+    results: Optional[str] = None
+    discussion: Optional[str] = None
+    conclusion: Optional[str] = None
+
+class Experiment(ExperimentBase, table = True):
+    id: Optional[int] = Field(default = None, primary_key = True)
+
+class ExperimentCreate(ExperimentBase):
+    pass
+
+class ExperimentPublic(ExperimentBase):
+    id: int
 
 sqlite_database = "database.db"
 sqlite_url = f"sqlite:///{sqlite_database}"
@@ -33,16 +54,48 @@ app = FastAPI(title = "Hypothesis API", description = "An api for storing and re
 def on_startup():
     create_db()
 
-@app.post("/experiments")
-def create_experiment(experiment: Experiment):
+@app.post("/experiments", response_model = ExperimentPublic)
+def create_experiment(experiment: ExperimentCreate):
     with Session(engine) as session:
-        session.add(experiment)
+        db_experiment = Experiment.model_validate(experiment)
+
+        session.add(db_experiment)
         session.commit()
-        session.refresh(experiment)
-        return experiment
+        session.refresh(db_experiment)
+        return db_experiment
     
-@app.get("/experiments")
+@app.patch("/experiments/{experiment_id}", response_model = ExperimentPublic)
+def update_experiment(experiment_id: int, experiment: ExperimentUpdate):
+    with Session(engine) as session:
+        db_experiment = session.get(Experiment, experiment_id)
+        if not db_experiment:
+            raise HTTPException(
+                status_code = 404,
+                detail = "Experiment not found"
+            )
+        experiment_data = experiment.model_dump(exclude_unset = True)
+        db_experiment.sqlmodel_update(experiment_data)
+
+        session.add(db_experiment)
+        session.commit()
+        session.refresh(db_experiment)
+        return db_experiment
+
+
+@app.get("/experiments", response_model = list[ExperimentPublic])
 def get_experiments():
     with Session(engine) as session:
         experiments = session.exec(select(Experiment)).all()
         return experiments
+    
+@app.get("/experiments/{experiment_id}", response_model = ExperimentPublic)
+def get_experiment(experiment_id: int):
+    with Session(engine) as session:
+        experiment = session.get(Experiment, experiment_id)
+        if not experiment:
+            raise HTTPException(
+                status_code = 404,
+                detail = "Experiment not found"
+            )
+        return experiment
+    
