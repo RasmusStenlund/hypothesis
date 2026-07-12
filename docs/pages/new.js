@@ -14,15 +14,58 @@ export function page() {
             <div id = "contributor-list">
                 <div class = "contributor">
                     <input type = "text" class = "new-contributor">
-                    <input type = "button" class = "new-contributor-delete" value = "X">
                 </div>
             </div>
-            <input type = "button" id = "add-contributor" value = "+ Add Contributor">
+            <button id = "add-contributor">+ Add Contributor</button>
+
+            <label>Introduction</label>
+            <textarea id = "introduction"></textarea>
+
+            <label>Hypothesis</label>
+            <textarea id = "hypothesis"></textarea>
+
+            <label>Materials</label>
+            <div id = "material-list">
+                <div class = "material">
+                    <input type = "text" class = "new-material">
+                </div>
+            </div>
+            <button id = "add-material">+ Add Material</button>
+
+            <label>Method</label>
+            <textarea id = "method"></textarea>
+
+            <label>Results</label>
+            <textarea id = "results"></textarea>
+
+            <label>Discussion</label>
+            <textarea id = "discussion"></textarea>
+
+            <label>Conclusion</label>
+            <textarea id = "conclusion"></textarea>
+
+            <button type = "submit">Submit</type>
         </form>
     </div>
     `
 }
 
+function add_input(parent, div_class, text_class, button_class) {
+    const div = document.createElement("div")
+    div.classList.add(div_class)
+
+    const text = document.createElement("input")
+    text.type = "text"
+    text.classList.add(text_class)
+    div.appendChild(text)
+
+    const button = document.createElement("button")
+    button.classList.add(button_class)
+    button.textContent = "X"
+    div.appendChild(button)
+
+    parent.appendChild(div)
+}
 
 export function setup() {
 
@@ -30,20 +73,34 @@ export function setup() {
     const add_contributor = document.getElementById("add-contributor")
 
     add_contributor.addEventListener("click", function () {
-        const contributor = document.createElement("div")
-        contributor.classList.add("contributor")
+        add_input(contributor_list, "contributor", "new-contributor", "new-contributor-delete");
+    })
 
-        const contributor_text = document.createElement("input")
-        contributor_text.type = "text"
-        contributor_text.classList.add("new-contributor")
-        contributor.appendChild(contributor_text)
+    contributor_list.addEventListener("click", function (event) {
+        if (event.target.classList.contains("new-contributor-delete")) {
+            event.target.parentElement.remove()
+        }
+    })
 
-        const delete_contributor = document.createElement("input")
-        delete_contributor.type = "button"
-        delete_contributor.classList.add("new-contributor-delete")
-        delete_contributor.value = "X"
-        contributor.appendChild(delete_contributor)
+    const material_list = document.getElementById("material-list")
+    const add_material = document.getElementById("add-material")
 
-        contributor_list.appendChild(contributor)
+    add_material.addEventListener("click", function () {
+        add_input(material_list, "material", "new-material", "new-material-delete")
+    })
+
+    material_list.addEventListener("click", function (event) {
+        if (event.target.classList.contains("new-material-delete")) {
+            event.target.parentElement.remove()
+        }
+    })
+
+    var textareas = document.querySelectorAll("textarea")
+
+    textareas.forEach(function(textarea) {
+        textarea.addEventListener("input", function () {
+            textarea.style.height = "auto";
+            textarea.style.height = textarea.scrollHeight + "px";
+        })
     })
 }

@@ -71,4 +71,29 @@ p, a, h1 {
     border-radius: 12px;
     padding: 10px;
     margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+#new-experiment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    overflow: hidden;
+    resize: none;
+    width: 100px;
+}
+
+#contributor-list, #material-list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 5px;
+    column-gap: 15px;
+}
+
+.contributor, .material {
+    display: flex;
+    gap: 5px;
 }
