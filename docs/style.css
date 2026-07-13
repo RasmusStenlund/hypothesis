@@ -68,6 +68,22 @@ p, a, h1, h2, h3, h4 {
     
 }
 
+#message-overlay {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    opacity: 0;
+}
+
+#message-ovelay.show {
+    opacity: 1;
+}
+
+#message-overlay .message {
+    background-color: green;
+    
+}
+
 #app {
     color: #1E293B;
     padding: 15px;

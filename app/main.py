@@ -6,7 +6,7 @@ from typing import Optional, List
 class ExperimentBase(SQLModel):
     title: str
     date: str
-    name: str
+    contributors: List[str] = Field(sa_column = Column(JSON))
 
     introduction: str
     hypothesis: str
@@ -19,7 +19,7 @@ class ExperimentBase(SQLModel):
 class ExperimentUpdate(SQLModel):
     title: Optional[str] = None
     date: Optional[str] = None
-    name: Optional[str]= None
+    contributors: Optional[List[str]] = None
 
     introduction: Optional[str] = None
     hypothesis: Optional[str] = None

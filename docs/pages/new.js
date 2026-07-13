@@ -7,12 +7,12 @@ export function page() {
             <div class = "experiment-part">
                 <div class = "component">
                     <label>Title</label>
-                    <input type = "text" id = "new-title">
+                    <input type = "text" id = "new-title" required>
                 </div>
 
                 <div class = "component">
                     <label>Date</label>
-                    <input type = "date" id = "new-date">
+                    <input type = "date" id = "new-date" required>
                 </div>
             </div>
 
@@ -21,11 +21,11 @@ export function page() {
                     <label>Contributors</label>
                     <div id = "contributor-list">
                         <div class = "contributor">
-                            <input type = "text" class = "new-contributor">
-                            <button class="new-contributor-delete hidden">−</button>
+                            <input type = "text" class = "new-contributor" required>
+                            <button type = "button" class="new-contributor-delete hidden">−</button>
                         </div>
                     </div>
-                    <button id = "add-contributor">+ Add Contributor</button>
+                    <button type = "button" id = "add-contributor">+ Add Contributor</button>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@ export function page() {
 
                 <div class = "component">
                     <label>Hypothesis</label>
-                    <textarea id = "hypothesis"></textarea>
+                    <textarea id = "hypothesis" required></textarea>
                 </div>
 
                 <div class = "component">
@@ -45,15 +45,15 @@ export function page() {
                     <div id = "material-list">
                         <div class = "material">
                             <input type = "text" class = "new-material">
-                            <button class="new-material-delete hidden">−</button>
+                            <button type = "button" class="new-material-delete hidden">−</button>
                         </div>
                     </div>
-                    <button id = "add-material">+ Add Material</button>
+                    <button type = "button" id = "add-material">+ Add Material</button>
                 </div>
 
                 <div class = "component">
                     <label>Method</label>
-                    <textarea id = "method"></textarea>
+                    <textarea id = "method" required></textarea>
                 </div>
 
                 <div class = "component">
@@ -80,6 +80,8 @@ export function page() {
     `
 }
 
+import {call_api, show_message} from "../extra-functions.js"
+
 function add_input(parent, div_class, text_class, button_class) {
     const div = document.createElement("div")
     div.classList.add(div_class)
@@ -91,6 +93,7 @@ function add_input(parent, div_class, text_class, button_class) {
 
     const button = document.createElement("button")
     button.classList.add(button_class)
+    button.type = "button"
     button.innerHTML = "&minus;";
     div.appendChild(button)
 
@@ -132,5 +135,43 @@ export function setup() {
             textarea.style.height = "auto";
             textarea.style.height = textarea.scrollHeight + "px";
         })
+    })
+
+
+    const form = document.getElementById("new-experiment-form");
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault()
+
+        const experiment = {
+            title: document.getElementById("new-title").value.trim(),
+            date: document.getElementById("new-date").value.trim(),
+
+            contributors: Array.from(
+                document.querySelectorAll(".new-contributor")
+            ).map(function(input) {
+                return input.value.trim()
+            }).filter(function(value) {
+                return value !== ""
+            }),
+
+            introduction: document.getElementById("introduction").value.trim(),
+            hypothesis: document.getElementById("hypothesis").value.trim(),
+
+            materials: Array.from(
+                document.querySelectorAll(".new-material")
+            ).map(function(input) {
+                return input.value.trim()
+            }).filter(function(value) {
+                return value !== ""
+            }),
+
+            method: document.getElementById("method").value.trim(),
+            results: document.getElementById("results").value.trim(),
+            discussion: document.getElementById("discussion").value.trim(),
+            conclusion: document.getElementById("conclusion").value.trim()
+        }
+
+        data = await call_api(experiment, "/experiments", "POST");
+        show_message("test");
     })
 }
