@@ -1,58 +1,80 @@
 export function page() {
     return `
     <div class = "new">
-        <p>New experiment</p>
+        <h3 id = "new-header">Create new experiment</h3>
 
         <form id = "new-experiment-form">
             <div class = "experiment-part">
-                <label>Title</label>
-                <input type = "text" id = "new-title">
+                <div class = "component">
+                    <label>Title</label>
+                    <input type = "text" id = "new-title">
+                </div>
 
-                <label>Date</label>
-                <input type = "date" id = "new-date">
+                <div class = "component">
+                    <label>Date</label>
+                    <input type = "date" id = "new-date">
+                </div>
             </div>
 
             <div class = "experiment-part">
-                <label>Contributors</label>
-                <div id = "contributor-list">
-                    <div class = "contributor">
-                        <input type = "text" class = "new-contributor">
-                        <button class="new-contributor-delete hidden">−</button>
+                <div class = "component">
+                    <label>Contributors</label>
+                    <div id = "contributor-list">
+                        <div class = "contributor">
+                            <input type = "text" class = "new-contributor">
+                            <button class="new-contributor-delete hidden">−</button>
+                        </div>
                     </div>
+                    <button id = "add-contributor">+ Add Contributor</button>
                 </div>
-                <button id = "add-contributor">+ Add Contributor</button>
             </div>
 
             <div class = "experiment-part">
-                <label>Introduction</label>
-                <textarea id = "introduction"></textarea>
-
-                <label>Hypothesis</label>
-                <textarea id = "hypothesis"></textarea>
-
-                <label>Materials</label>
-                <div id = "material-list">
-                    <div class = "material">
-                        <input type = "text" class = "new-material">
-                        <button class="new-material-delete hidden">−</button>
-                    </div>
+                <div class = "component">
+                    <label>Introduction</label>
+                    <textarea id = "introduction"></textarea>
                 </div>
-                <button id = "add-material">+ Add Material</button>
 
-                <label>Method</label>
-                <textarea id = "method"></textarea>
+                <div class = "component">
+                    <label>Hypothesis</label>
+                    <textarea id = "hypothesis"></textarea>
+                </div>
 
-                <label>Results</label>
-                <textarea id = "results"></textarea>
+                <div class = "component">
+                    <label>Materials</label>
+                    <div id = "material-list">
+                        <div class = "material">
+                            <input type = "text" class = "new-material">
+                            <button class="new-material-delete hidden">−</button>
+                        </div>
+                    </div>
+                    <button id = "add-material">+ Add Material</button>
+                </div>
 
-                <label>Discussion</label>
-                <textarea id = "discussion"></textarea>
+                <div class = "component">
+                    <label>Method</label>
+                    <textarea id = "method"></textarea>
+                </div>
 
-                <label>Conclusion</label>
-                <textarea id = "conclusion"></textarea>
+                <div class = "component">
+                    <label>Results</label>
+                    <textarea id = "results"></textarea>
+                </div>
+                
+                <div class = "component">
+                    <label>Discussion</label>
+                    <textarea id = "discussion"></textarea>
+                </div>
+
+                <div class = "component">
+                    <label>Conclusion</label>
+                    <textarea id = "conclusion"></textarea>
+                </div>
             </div>
 
-            <button type = "submit">Submit</type>
+            <div class = "experiment-part">
+                <button type = "submit">Create experiment</type>
+            </div>
         </form>
     </div>
     `

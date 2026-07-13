@@ -7,9 +7,10 @@ body {
     background-color: #F8FAFC;
 }
 
-p, a, h1 {
+p, a, h1, h2, h3, h4 {
     padding: 0;
     margin: 0;
+    font-weight: normal;
 }
 
 .header {
@@ -22,18 +23,26 @@ p, a, h1 {
     padding: 0px;
     border-bottom: 1px solid #e5ebf4;
     min-height: 50px;
-    padding-left: 15px;
+    padding-left: 5px;
     padding-right: 15px;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 0px;
 }
 
-.logo p {
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.logo .icon {
     font-size: 1.4rem;
+    line-height: 1;
 }
 
 .links {
@@ -77,17 +86,38 @@ p, a, h1 {
     justify-self: center;
 }
 
+#new-header {
+    align-self: center;
+    margin: 10px;
+}
+
 #new-experiment-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-input[type = "text"] {
-    background-color: #cfd5df;
+input[type = "date"] {
+    width: 150px;
+    height: 1.2rem;
+    padding: 5px;
+    background-color: #ffffff;
+    border: 1px solid rgb(193, 203, 215);
+    border-radius: 5px;
+}
+
+input[type = "text"], textarea {
+    background-color: #ffffff;
     border: 1px solid rgb(193, 203, 215);
     padding: 8px;
     border-radius: 5px;
+}
+
+textarea {
+    overflow: hidden;
+    resize: none;
+    width: 60%;
+    height: 75px;
 }
 
 *:focus {
@@ -99,21 +129,17 @@ input[type = "text"] {
     border-radius: 5px;
 }
 
-textarea {
-    width: 100%
-}
-
-
 .new-contributor-delete, .new-material-delete {
-    background-color: red;
+    background-color: rgb(255, 104, 104);
     color: #FFFFFF;
-    border: 1px solid #ab0000;
-    width: 1.5rem;
-    height: 1.5rem;
-    font-size: 1.2rem;
+    border: 1px solid #e51e1e;
+    width: 1.3rem;
+    height: 1.3rem;
+    font-size: 1rem;
     align-self: center;
     display: flex;
     align-items: center;
+    justify-content: center;
     line-height: 1;
     border-radius: 3px;
     
@@ -143,13 +169,14 @@ button:hover {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    gap: 5px;
+    gap: 15px;
 }
 
-textarea {
-    overflow: hidden;
-    resize: none;
-    width: 100px;
+.component {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
 }
 
 #contributor-list, #material-list {
@@ -162,4 +189,14 @@ textarea {
 .contributor, .material {
     display: flex;
     gap: 5px;
+}
+
+button[type = "submit"] {
+    width: fit-content;
+    align-self: center;
+    padding: 7px;
+    background-color: #5d87c5;
+    border: 1px solid #416497;
+    color: white;
+    border-radius: 5px;
 }
