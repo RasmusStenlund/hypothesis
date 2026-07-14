@@ -133,14 +133,18 @@ input[type = "date"] {
     border-radius: 5px;
 }
 
-input[type = "text"], textarea {
+input[type = "text"], textarea, .experiment-text {
     background-color: #ffffff;
     border: 1px solid rgb(193, 203, 215);
     padding: 8px;
     border-radius: 5px;
 }
 
-textarea {
+.contributor .experiment-text {
+    width: 100%
+}
+
+textarea, .textarea {
     overflow: hidden;
     resize: none;
     width: 60%;
@@ -206,7 +210,7 @@ button:hover {
     gap: 5px;
 }
 
-#contributor-list, #material-list {
+#contributor-list, #material-list, #experiment-page-contributor-list, #experiment-page-material-list {
     display: flex;
     flex-wrap: wrap;
     row-gap: 5px;
@@ -216,6 +220,7 @@ button:hover {
 .contributor, .material {
     display: flex;
     gap: 5px;
+    width: 180px;
 }
 
 button[type = "submit"] {
@@ -305,5 +310,15 @@ button[type = "submit"] {
 
 #experiment-date {
     font-size: 0.9rem;
+}
+
+.view-mode input,
+.view-mode textarea {
+    border: none;
+    background: transparent;
+    resize: none;
+    outline: none;
+    padding: 0;
+    pointer-events: none;
 }
 

@@ -6,19 +6,19 @@ export function page() {
         <form id = "new-experiment-form">
             <div class = "experiment-part">
                 <div class = "component">
-                    <label>Title</label>
+                    <h3>Title</h3>
                     <input type = "text" id = "new-title" required>
                 </div>
 
                 <div class = "component">
-                    <label>Date</label>
+                    <h3>Date</h3>
                     <input type = "date" id = "new-date" required>
                 </div>
             </div>
 
             <div class = "experiment-part">
                 <div class = "component">
-                    <label>Contributors</label>
+                    <h3>Contributors</h3>
                     <div id = "contributor-list">
                         <div class = "contributor">
                             <input type = "text" class = "new-contributor" required>
@@ -31,17 +31,17 @@ export function page() {
 
             <div class = "experiment-part">
                 <div class = "component">
-                    <label>Introduction</label>
+                    <h3>Introduction</h3>
                     <textarea id = "introduction"></textarea>
                 </div>
 
                 <div class = "component">
-                    <label>Hypothesis</label>
+                    <h3>Hypothesis</h3>
                     <textarea id = "hypothesis" required></textarea>
                 </div>
 
                 <div class = "component">
-                    <label>Materials</label>
+                    <h3>Materials</h3>
                     <div id = "material-list">
                         <div class = "material">
                             <input type = "text" class = "new-material">
@@ -52,22 +52,22 @@ export function page() {
                 </div>
 
                 <div class = "component">
-                    <label>Method</label>
+                    <h3>Method</h3>
                     <textarea id = "method" required></textarea>
                 </div>
 
                 <div class = "component">
-                    <label>Results</label>
+                    <h3>Results</h3>
                     <textarea id = "results"></textarea>
                 </div>
                 
                 <div class = "component">
-                    <label>Discussion</label>
+                    <h3>Discussion</h3>
                     <textarea id = "discussion"></textarea>
                 </div>
 
                 <div class = "component">
-                    <label>Conclusion</label>
+                    <h3>Conclusion</h3>
                     <textarea id = "conclusion"></textarea>
                 </div>
             </div>
