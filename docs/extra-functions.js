@@ -33,3 +33,21 @@ export function show_message(message) {
         overlay.classList.remove("show")
      }, 3000)
 }
+
+export function add_input(parent, div_class, text_class, button_class) {
+    const div = document.createElement("div")
+    div.classList.add(div_class)
+
+    const text = document.createElement("input")
+    text.type = "text"
+    text.classList.add(text_class)
+    div.appendChild(text)
+
+    const button = document.createElement("button")
+    button.classList.add(button_class)
+    button.type = "button"
+    button.innerHTML = "&minus;";
+    div.appendChild(button)
+
+    parent.appendChild(div)
+}

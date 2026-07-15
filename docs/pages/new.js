@@ -22,7 +22,7 @@ export function page() {
                     <div id = "contributor-list">
                         <div class = "contributor">
                             <input type = "text" class = "new-contributor" required>
-                            <button type = "button" class="new-contributor-delete hidden">−</button>
+                            <button type = "button" class="remove-contributor opacity">−</button>
                         </div>
                     </div>
                     <button type = "button" id = "add-contributor">+ Add Contributor</button>
@@ -45,7 +45,7 @@ export function page() {
                     <div id = "material-list">
                         <div class = "material">
                             <input type = "text" class = "new-material">
-                            <button type = "button" class="new-material-delete hidden">−</button>
+                            <button type = "button" class="remove-material opacity">−</button>
                         </div>
                     </div>
                     <button type = "button" id = "add-material">+ Add Material</button>
@@ -106,11 +106,11 @@ export function setup() {
     const add_contributor = document.getElementById("add-contributor")
 
     add_contributor.addEventListener("click", function () {
-        add_input(contributor_list, "contributor", "new-contributor", "new-contributor-delete");
+        add_input(contributor_list, "contributor", "new-contributor", "remove-contributor");
     })
 
     contributor_list.addEventListener("click", function (event) {
-        if (event.target.classList.contains("new-contributor-delete")) {
+        if (event.target.classList.contains("remove-contributor")) {
             event.target.parentElement.remove()
         }
     })

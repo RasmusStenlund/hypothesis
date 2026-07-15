@@ -8,6 +8,10 @@ export function page() {
                 <button id = "edit-experiment">Edit</button>
                 <button id = "delete-experiment">Delete</button>
             </div>
+            <div id = "experiment-page-edit-buttons" class = "hidden">
+                <button id = "cancel-edit">Cancel</button>
+                <button id = "save-edit">Save</button>
+            </div>
         </div>
 
          <form id = "experiment-page-form">
@@ -74,8 +78,7 @@ export function page() {
         </div>
     </div>
     `
-}
-
+} 
 function make_list(type, data, list) {
     for (const element of data) {
         const container = document.createElement("div")
@@ -88,6 +91,19 @@ function make_list(type, data, list) {
         container.appendChild(text)
         list.appendChild(container)
     }
+}
+
+function replace_text() {
+    const text_elements = document.querySelectorAll(".textarea")
+
+    for (const text of text_elements) {
+        const input = document.createElement("textarea")
+        input.value = text.textContent
+
+        text.replaceWith(input)
+
+    }
+
 }
 
 import {call_api, show_message} from "../extra-functions.js"
@@ -114,6 +130,15 @@ export async function setup(params) {
     document.getElementById("experiment-page-results").textContent = experiment.results
     document.getElementById("experiment-page-discussion").textContent = experiment.discussion
     document.getElementById("experiment-page-conclusion").textContent = experiment.conclusion
+
+    const edit_button = document.getElementById("edit-experiment")
+    const edit_buttons = document.getElementById("experiment-page-edit-buttons")
+    const regular_buttons = document.getElementById("experiment-page-actions")
+    edit_button.addEventListener("click", function () {
+        replace_text();
+        regular_buttons.classList.add("hidden")
+        edit_buttons.classList.remove("hidden")
+    })
 
     const delete_button = document.getElementById("delete-experiment")
     const delete_container = document.getElementById("delete-container")

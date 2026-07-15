@@ -8,6 +8,16 @@ body {
     background-color: #F8FAFC;
 }
 
+input,
+textarea,
+button {
+    font-family: inherit;
+}
+
+input, textarea {
+    font-size: 1rem;
+}
+
 p, a, h1, h2, h3, h4 {
     padding: 0;
     margin: 0;
@@ -100,6 +110,11 @@ p, a, h1, h2, h3, h4 {
     padding: 15px;
 }
 
+.opacity {
+    opacity: 0;
+    pointer-events: none;
+}
+
 /*New*/
 .new {
     background-color: #FFFFFF;
@@ -148,7 +163,7 @@ textarea, .textarea {
     overflow: hidden;
     resize: none;
     width: 60%;
-    height: 75px;
+    min-height: 96px;
 }
 
 *:focus {
@@ -160,7 +175,7 @@ textarea, .textarea {
     border-radius: 5px;
 }
 
-.new-contributor-delete, .new-material-delete {
+.remove-material, .remove-contributor {
     background-color: rgb(255, 104, 104);
     color: #FFFFFF;
     border: 1px solid #e51e1e;
@@ -220,7 +235,6 @@ button:hover {
 .contributor, .material {
     display: flex;
     gap: 5px;
-    width: 180px;
 }
 
 button[type = "submit"] {
@@ -318,14 +332,8 @@ button[type = "submit"] {
     font-size: 0.9rem;
 }
 
-.view-mode input,
-.view-mode textarea {
-    border: none;
-    background: transparent;
-    resize: none;
-    outline: none;
-    padding: 0;
-    pointer-events: none;
+#experiment-page .material, #experiment-page .contributor {
+    width: 180px;
 }
 
 #delete-container {
@@ -380,4 +388,8 @@ button[type = "submit"] {
     padding-left: 30px;
     padding-right: 30px;
     font-size: 1.05rem;
+}
+
+.experiment-page form .hidden {
+    opacity: 0;
 }
