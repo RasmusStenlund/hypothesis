@@ -145,7 +145,7 @@ export function setup() {
                 return input.value.trim()
             }).filter(function(value) {
                 return value !== ""
-            }),
+            }), 
 
             method: document.getElementById("new-method").value.trim(),
             results: document.getElementById("new-results").value.trim(),
@@ -156,7 +156,9 @@ export function setup() {
         const data = await call_api(experiment, "/experiments", "POST");
         if (data.code === 200) {
             window.location.hash = '#/experiments'
-            show_message("Successfully created experiment!");
+            show_message("Successfully created experiment!", true);
+        } else {
+            show_message("Failed to create experiment", false)
         }
     })
 }

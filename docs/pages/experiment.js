@@ -334,7 +334,9 @@ export async function setup(params) {
 
             edit_buttons.classList.add("hidden")
             regular_buttons.classList.remove("hidden")
-            show_message("Sucessfully edited experiment!")
+            show_message("Sucessfully edited experiment!", true)
+        } else {
+            show_message("Failed to edit experiment.", false)
         }
     })
 
@@ -358,7 +360,9 @@ export async function setup(params) {
         const delete_response = await call_api(null, `/experiments/${params.id}`, "DELETE")
         if (delete_response.code === 200) {
             window.location.hash = "#/experiments"
-            show_message("Experiment successfully deleted!")
+            show_message("Experiment successfully deleted!", true)
+        } else {
+            show_message("Failed to delete experiment.", false)
         }
     })
 }

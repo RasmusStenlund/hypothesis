@@ -12,21 +12,36 @@ export async function call_api(dict, endpoint, call_method) {
         options.body = JSON.stringify(dict)
     }
     
-    const response = await fetch(`${url}${endpoint}`, options)
+    try {
+        const response = await fetch(`${url}${endpoint}`, options)
 
-    const data = await response.json()
+        const data = await response.json()
 
-    return {
-        ok: response.ok,
-        code: response.status,
-        data: data,
+        return {
+            ok: response.ok,
+            code: response.status,
+            data: data,
+        }
+    } catch(error) {
+        return {
+            code: 0,
+            error: "Failed to conenct to API."
+        }
     }
 }
 
-export function show_message(message) {
+export function show_message(message, status) {
     const overlay = document.getElementById("message-overlay")
-    overlay.querySelector(".message").textContent = message;
+    const message_text = overlay.querySelector(".message")
+    message_text.textContent = message;
 
+    if (status) {
+        message_text.classList.add("green")
+        message_text.classList.remove("red")
+    } else {
+        message_text.classList.remove("green")
+        message_text.classList.add("red")
+    }
     overlay.classList.add("show")
 
     setTimeout(function () {

@@ -56,8 +56,9 @@ p, a, h1, h2, h3, h4 {
 }
 
 .logo .icon {
-    font-size: 1.4rem;
-    line-height: 1;
+    width: 30px;
+    height: 30px;
+    display: block;
 }
 
 .links {
@@ -102,12 +103,18 @@ p, a, h1, h2, h3, h4 {
 #message-overlay .message {
     size: fit-content;
     padding: 10px;
-    background-color: #49b04e;
     border: 1px solid rgb(193, 203, 215);
     border-radius: 10px;
     color: white;
 }
 
+#message-overlay .message.green {
+    background-color: #49b04e;
+}
+
+#message-overlay .message.red {
+    background-color: #d94646;
+}
 
 
 /*App*/
@@ -255,6 +262,22 @@ button[type = "submit"] {
 }
 
 /*Experiments*/
+.experiments {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+#filter-experiments {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+#search-experiments {
+    width: 40%;
+}
+
 #experiments-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
