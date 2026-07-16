@@ -271,11 +271,19 @@ button[type = "submit"] {
 #filter-experiments {
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;   
+    gap: 20px; 
 }
 
 #search-experiments {
+    min-width: 180px;
     width: 40%;
+}
+
+#sort-div {
+    display: flex;
+    gap: 10px;
+    min-width: fit-content;
 }
 
 #experiments-list {

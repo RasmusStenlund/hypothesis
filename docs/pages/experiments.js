@@ -3,13 +3,15 @@
         <div class = "experiments">
             <div id = "filter-experiments">
                 <input type = "text" id = "search-experiments" placeholder = "Search experiment by title...">
-                <p>Sort by:</p>
-                <select id = "sort-experiments">
-                    <option value = "Newest">Newest</option>
-                    <option value = "Oldest">Oldest</option>
-                    <option value = "A-Z">Title A-Z</option>
-                    <option value = "Z-A">Title Z-A</option>
-                </select>
+                <div id = "sort-div">
+                    <p>Sort by:</p>
+                    <select id = "sort-experiments">
+                        <option value = "Newest">Newest</option>
+                        <option value = "Oldest">Oldest</option>
+                        <option value = "A-Z">Title A-Z</option>
+                        <option value = "Z-A">Title Z-A</option>
+                    </select>
+                </div>
             </div>
 
             <div id = "experiments-list"></div>
@@ -25,10 +27,8 @@
     import {call_api, show_message} from "../extra-functions.js"
 
     function make_experiment_card(title, date, contributors, hypothesis, id, parent) {
-        const link = document.createElement("a")
-        link.href = `#/experiments/${id}`
-
-        const card = document.createElement("div")
+        const card = document.createElement("a")
+        card.href = `#/experiments/${id}`
         card.classList.add("experiment-card")
 
         const card_title = document.createElement("h3")
@@ -55,8 +55,7 @@
         short_hypothesis.textContent = hypothesis
         card.appendChild(short_hypothesis)
 
-        link.appendChild(card)
-        parent.appendChild(link)
+        parent.appendChild(card)
     }
 
     function show_experiments(experiments) {
