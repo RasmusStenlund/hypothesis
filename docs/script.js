@@ -1,4 +1,4 @@
-import * as login from "./pages/login.js"
+import * as sign_in from "./pages/signin.js"
 import * as sign_up from "./pages/signup.js"
 
 import * as home from "./pages/home.js"
@@ -11,7 +11,7 @@ import {is_logged_in} from "./auth.js"
 import {update_links} from "./extra-functions.js"
 
 const public_routes = {
-    '#/account/login': login,
+    '#/account/signin': sign_in,
     '#/account/signup': sign_up
 }
 
@@ -42,12 +42,12 @@ function router() {
     let params = {}
 
     if (private_routes[current_hash] && !(is_logged_in())) {
-        window.location.hash = '#/account/login'
+        window.location.hash = '#/account/signin'
         return
     }
 
     if (current_hash.startsWith('#/experiments/') && !(is_logged_in())) {
-        window.location.hash = '#/account/login'
+        window.location.hash = '#/account/signin'
         return
     }
 
