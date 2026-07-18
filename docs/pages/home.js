@@ -4,25 +4,31 @@ export function page() {
         <div id = "public-home">
             <div id = "home-logo">
                 <img class = "icon" src = "./images/hypothesis-icon.png" alt = "Hypothesis icon">
-                <h1 class = "hypothesis">Hypothesis</h1>
+                <h1 class = "hypothesis">Welcome to Hypothesis!</h1>
             </div>
-            <h2>Organize your scientific experiments.</h2>
-            <p>Create, document, edit and remove your experiments from hypothesis to conclusion - All in one place.</p>
+            <div class = "home-part">
+                <h2>Organize your scientific experiments.</h2>
+                <p>Create, document, edit and remove your experiments from hypothesis to conclusion - All in one place.</p>
 
-            <div id = "home-public-buttons">
-                <button id = "home-get-started">Get started</button>
-                <button id = "home-sign-in">Sign in</button>
+                <div id = "home-public-buttons">
+                    <button id = "home-get-started">Get started</button>
+                    <button id = "home-sign-in">Sign in</button>
+                </div>
             </div>
         </div>
         <div id = "private-home">
             <h1 id = "home-welcome"></h1>
 
-            <h3>Document your next experiment</h3>
-            <button id = "home-new">+ New experiment</button>
+            <div class = "home-part">
+                <h3>Document your next experiment</h3>
+                <button id = "home-new">+ New experiment</button>
+            </div>
 
-            <h3>Other pages</h3>
-            <button id = "home-experiments">View experiments</button>
-            <button id = "home-account">Account</button>
+            <div class = "home-part">
+                <h3>Other pages</h3>
+                <button id = "home-experiments">View experiments</button>
+                <button id = "home-account">Account</button>
+            </div>
         </div>
     </div>
     `
@@ -45,6 +51,21 @@ export async function setup() {
 
         if (response.ok) {
             welcome.textContent = `Welcome back, ${response.data.display_name}`
+
+            const add_experiment = document.getElementById("home-new")
+            add_experiment.addEventListener("click", function () {
+                window.location.hash = "#/experiments/new"
+            })
+
+            const experiments = document.getElementById("home-experiments")
+            experiments.addEventListener("click", function () {
+                window.location.hash = "#/experiments"
+            })
+
+            const account = document.getElementById("home-account")
+            account.addEventListener("click", function () {
+                window.location.hash = "#/account"
+            })
         }
 
     } else {

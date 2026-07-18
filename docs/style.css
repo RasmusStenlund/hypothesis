@@ -23,7 +23,7 @@ p, a, h1, h2, h3, h4 {
     margin: 0;
     font-weight: normal;
     text-decoration: none;
-    text-align: center;
+
 }
 
 
@@ -231,7 +231,7 @@ button:hover {
     cursor: pointer;
 }
 
-.experiment-part {
+.experiment-part, .account-part, .home-part {
     background-color: #f2f5fa;
     border: 1px solid #E2E8F0;
     border-radius: 10px;
@@ -314,6 +314,12 @@ button[type = "submit"] {
     flex-direction: column;
     gap: 25px;
     
+}
+
+.hypothesis-preview {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #experiments-list a {
@@ -418,12 +424,10 @@ button[type = "submit"] {
     border: 1px solid #790e0e;
     color: white;
     border-radius: 5px;
-    line-height: 1;
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 25px;
     padding-right: 25px;
-    font-size: 1rem;
 }
 
 #cancel-delete {
@@ -435,11 +439,9 @@ button[type = "submit"] {
     padding-bottom: 7px;
     padding-left: 25px;
     padding-right: 25px;
-    font-size: 1rem;
-    line-height: 1
 }
 
-#cancel-edit {
+#cancel-edit, #sign-out-button {
     background-color: #979eaf;
     border: 1px solid #777777;
     color: white;
@@ -549,35 +551,74 @@ button[type = "submit"] {
 
 /* Home */
 #home {
-    background-color: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-self: center;
+    text-align: center;
+    margin-top: 15px;
 }
 
-#public-home {
+#public-home, #private-home {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    gap: 20px;
     width: 50vw;
 }
+
+
 
 #home-logo {
     display: flex;
     align-items: center;
     gap: 20px;
+    align-self: center;
 }
 
 #home-logo .icon {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
 }
-#home-logo .hypothesis {
-    font-size: 2.5rem;
+
+
+#home button {
+    background-color: #8c9bb3;
+    border: 1px solid #8397b5;
+    color: white;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.home-part {
+    align-items: center;
+}
+
+#home-public-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Account */
+#account-page {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    width: clamp(300px, 40vw, 600px);
+    justify-self: center;
+    gap: 10px;
+}
+
+#sign-out-button {
+    width: fit-content;
+    align-self: center;
 }
