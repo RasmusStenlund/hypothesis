@@ -1,3 +1,6 @@
+import {setup_menu} from "./pages/menu.js"
+setup_menu()
+
 import * as sign_in from "./pages/signin.js"
 import * as sign_up from "./pages/signup.js"
 
@@ -29,7 +32,7 @@ function router() {
 
     const current_hash = window.location.hash || '#/';
 
-    const link_list = document.querySelectorAll(".links a")
+    const link_list = document.querySelectorAll(".links a, #side-menu a")
     for (const link of link_list) {
         if (link.getAttribute("href") === current_hash) {
             link.classList.add("selected")
@@ -37,6 +40,7 @@ function router() {
             link.classList.remove("selected")
         }
     }
+
 
     let content_function = {...public_routes, ...private_routes}[current_hash]
     let app_container = document.getElementById('app')

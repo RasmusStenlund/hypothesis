@@ -5,6 +5,7 @@
     <meta charset = "UTF-8">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1">
     <link rel = "stylesheet" href = "style.css">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel = "icon" type = "image/png" href = "images/hypothesis-icon-web.png">
     <title>Hypothesis</title>
 </head>
@@ -28,7 +29,13 @@
             <a href = "#/experiments/new">+ New experiment</a>
             <a href = "#/account">Account</a>
         </div>
+
+        <a href="javascript:void(0);" id = "menu-button">
+            <i id = "menu-icon" class="fa-solid fa-bars"></i>
+        </a>
     </div>
+
+    <div id = "side-menu"></div>
 
     <div id = "message-overlay">
         <p class = "message"></p>

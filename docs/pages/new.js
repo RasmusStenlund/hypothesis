@@ -1,6 +1,6 @@
 export function page() {
     return `
-    <div class = "new">
+    <div id = "new">
         <h1 id = "new-header">Create new experiment</h1>
 
         <form id = "new-experiment-form">

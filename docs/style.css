@@ -89,9 +89,70 @@ p, a, h1, h2, h3, h4 {
     
 }
 
+#side-menu {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 1rem;
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+    background-color: #ffffff;
+    border: 1px solid rgb(193, 203, 215);
+    border-radius: 10px;
+
+}
+
+#side-menu.open {
+    display: flex;
+}
+
+#side-menu a {
+    color: #1E293B;
+    text-decoration: none;
+    padding: 0;
+    display: block;
+    width: fit-content;
+    font-weight: 400;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 14px;
+    padding-left: 14px;
+    border-radius: 10px;
+}
+
+#side-menu a.selected {
+    background-color: #eff2f8;
+}
+
+#menu-button {
+    display: none;
+    color: #1E293B;
+    font-size: 1.1rem;
+    margin-left: auto;
+    padding: 10px;
+}
+
 @media screen and (max-width: 600px) {
     #logo-text {
         display: none;
+    }
+    #public-home, #private-home, #experiment-page, #new, #account-page, #sign-in, #sign-up {
+        width: 85vw !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .links {
+        display: none
+    }
+    #menu-button {
+        display: block
     }
 }
 
@@ -175,7 +236,7 @@ textarea, .textarea {
 
 
 /*New*/
-.new {
+#new {
     background-color: #FFFFFF;
     border: 1px solid #E2E8F0;
     border-radius: 12px;
@@ -371,7 +432,7 @@ button[type = "submit"] {
     margin: 0px;
     display: flex;
     flex-direction: column;
-    width: clamp(300px, 55vw, 1000px);
+    width: clamp(300px, 70vw, 1000px);
     justify-self: center;
 }
 
@@ -503,7 +564,7 @@ button[type = "submit"] {
     background-color: #FFFFFF;
     border: 1px solid #E2E8F0;
     border-radius: 12px;
-    width: 40vw;
+    width: clamp(300px, 40vw, 700px);
     padding: 20px;
     justify-self: center;
 }
@@ -547,7 +608,7 @@ button[type = "submit"] {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 50vw;
+    width: clamp(300px, 70vw, 1000px);
 }
 
 

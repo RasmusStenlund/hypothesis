@@ -119,19 +119,30 @@ export function add_input(parent, div_class, text_class, button_class) {
     parent.appendChild(div)
 }
 
-import {is_logged_in} from "./auth.js"
+    import {is_logged_in} from "./auth.js"
 
-export function update_links() {
-    const public_links = document.getElementById("public-links")
-    const private_links = document.getElementById("private-links")
+    export function update_links() {
+        const public_links = document.getElementById("public-links")
+        const private_links = document.getElementById("private-links")
+        const side_menu = document.getElementById("side-menu")
 
-    if (is_logged_in()) {
-        public_links.classList.add("hidden")
-        private_links.classList.remove("hidden")
-        
-    } 
-    else {
-        private_links.classList.add("hidden")
-        public_links.classList.remove("hidden") 
+        if (is_logged_in()) {
+            public_links.classList.add("hidden")
+            private_links.classList.remove("hidden")
+
+            side_menu.innerHTML = `
+                <a href = "#/experiments">Experiments</a>
+                <a href = "#/experiments/new">+ New experiment</a>
+                <a href = "#/account">Account</a>
+            `
+        } 
+        else {
+            private_links.classList.add("hidden")
+            public_links.classList.remove("hidden") 
+
+            side_menu.innerHTML = `
+                <a href = "#/account/signin">Sign in</a>
+                <a href = "#/account/signup">Sign up</a>
+            `
+        }
     }
-}
