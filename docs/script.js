@@ -46,6 +46,10 @@ function router() {
         return
     }
 
+    if (public_routes[current_hash] && is_logged_in()) {
+        window.location.hash = '#/'
+    }
+
     if (current_hash.startsWith('#/experiments/') && !(is_logged_in())) {
         window.location.hash = '#/account/signin'
         return
