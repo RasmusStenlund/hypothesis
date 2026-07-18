@@ -1,18 +1,22 @@
 export function page() {
     return `
     <div id = "sign-in">
-        <h1>Welcome to Hypothesis!</h1>
+        <h1>Sign in</h1>
         <p id = "sign-in-description">
             Don't have an account?
             <a href = "#/account/signup">Sign up</a>
         </p>
         <form id = "sign-in-form">
-            <label for = "sign-in-username">Username</label>
-            <input id = "sign-in-username" type = "text" name = "username" autocomplete = "username" required>
-            <label for = "sign-in-password">Password</label>
-            <input id = "sign-in-password" type = "password" name = "password" autocomplete = "current-password" required>
+            <div class = "sign-in-part">
+                <label for = "sign-in-username">Username</label>
+                <input id = "sign-in-username" type = "text" name = "username" autocomplete = "username" required>
+                <label for = "sign-in-password">Password</label>
+                <input id = "sign-in-password" type = "password" name = "password" autocomplete = "current-password" required>
+            </div>
 
-            <button type = "submit">Sign in</button>
+            <div class = "sign-in-part">
+                <button type = "submit">Sign in</button>
+            </div>
         </form>
     </div>
     `

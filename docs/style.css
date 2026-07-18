@@ -231,7 +231,7 @@ button:hover {
     cursor: pointer;
 }
 
-.experiment-part, .account-part, .home-part {
+.experiment-part, .account-part, .home-part, .sign-in-part, .sign-up-part {
     background-color: #f2f5fa;
     border: 1px solid #E2E8F0;
     border-radius: 10px;
@@ -495,58 +495,37 @@ button[type = "submit"] {
 }
 
 /*Sign in*/
-#sign-in {
+#sign-in, #sign-up {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 20px;
     margin-top: 10px;
-}
-
-#sign-in-description {
-    color: #313e54
-}
-
-#sign-in-description a {
-    color: #313e54
-}
-#sign-in-form {
-    background-color: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    display: flex;
-    flex-direction: column;
-    width: 30vw; 
-    border-radius: 12px;
-    padding: 15px;
-    gap: 10px;
-}
-
-/*Sign up*/
-#sign-up {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 10px;
-}
-
-#sign-up-description {
-    color: #313e54
-}
-
-#sign-up-description a {
-    color: #313e54
-}
-
-#sign-up-form {
     background-color: #FFFFFF;
     border: 1px solid #E2E8F0;
     border-radius: 12px;
-    padding: 15px;
+    width: 40vw;
+    padding: 20px;
+    justify-self: center;
+}
+
+#sign-in h1, #sign-up h1 {
+    align-self: center;
+}
+
+#sign-in-description, #sign-up-description {
+    color: #313e54;
+    align-self: center
+}
+
+#sign-in-description a, #sign-up-description a {
+    color: #313e54;
+    text-decoration: underline;
+}
+
+#sign-in form, #sign-up form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 30vw;
+    gap: 20px;
 }
 
 /* Home */
@@ -616,6 +595,10 @@ button[type = "submit"] {
     width: clamp(300px, 40vw, 600px);
     justify-self: center;
     gap: 10px;
+}
+
+#account-page h1 {
+    align-self: center;
 }
 
 #sign-out-button {

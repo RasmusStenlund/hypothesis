@@ -1,7 +1,7 @@
 export function page() {
     return `
     <div class = "new">
-        <h3 id = "new-header">Create new experiment</h3>
+        <h1 id = "new-header">Create new experiment</h1>
 
         <form id = "new-experiment-form">
             <div class = "experiment-part">

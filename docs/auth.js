@@ -8,7 +8,7 @@ export function get_token() {
 
 export function sign_out() {
     localStorage.removeItem("token")
-    window.location.hash = "#/account/signin"
+    window.location.hash = "#/"
 }
 
 export function is_logged_in() {

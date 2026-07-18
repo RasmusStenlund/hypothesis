@@ -7,22 +7,26 @@ export function page() {
             <a href = "#/account/signin">Sign in</a>
         </p>
         <form id = "sign-up-form">
-            <label for = "sign-up-display_name">Display name</label>
-            <input id = "sign-up-display_name" type = "text" name = "display_name" required>
+            <div class = "sign-up-part"
+                <label for = "sign-up-display_name">Display name</label>
+                <input id = "sign-up-display_name" type = "text" name = "display_name" required>
 
-            <label for = "sign-up-username">Username</label>
-            <input id = "sign-up-username" type = "text" name = "username" autocomplete = "username" required>
+                <label for = "sign-up-username">Username</label>
+                <input id = "sign-up-username" type = "text" name = "username" autocomplete = "username" required>
 
-            <label for = "sign-up-email">Email</label>
-            <input id = "sign-up-email" type = "email" name = "email" autocomplete = "email" required>
+                <label for = "sign-up-email">Email</label>
+                <input id = "sign-up-email" type = "email" name = "email" autocomplete = "email" required>
 
-            <label for = "sign-up-password">Password</label>
-            <input id = "sign-up-password" type = "password" name = "password" autocomplete = "new-password" required>
+                <label for = "sign-up-password">Password</label>
+                <input id = "sign-up-password" type = "password" name = "password" autocomplete = "new-password" required>
 
-            <label for = "sign-up-confirm">Confirm password</label>
-            <input id = "sign-up-confirm" type = "password" name = "confirm_password" autocomplete = "new-password" required>
+                <label for = "sign-up-confirm">Confirm password</label>
+                <input id = "sign-up-confirm" type = "password" name = "confirm_password" autocomplete = "new-password" required>
+            </div>
 
-            <button type = "submit">Sign up</button>
+            <div class = "sign-up-part">
+                <button type = "submit">Sign up</button>
+            </div>
         </form>
     </div>
     `

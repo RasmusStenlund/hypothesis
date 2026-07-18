@@ -9,7 +9,9 @@ export function page() {
             <div class = "home-part">
                 <h2>Organize your scientific experiments.</h2>
                 <p>Create, document, edit and remove your experiments from hypothesis to conclusion - All in one place.</p>
+            </div>
 
+            <div class = "home-part">
                 <div id = "home-public-buttons">
                     <button id = "home-get-started">Get started</button>
                     <button id = "home-sign-in">Sign in</button>

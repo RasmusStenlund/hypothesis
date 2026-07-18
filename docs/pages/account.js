@@ -1,6 +1,7 @@
 export function page() {
     return `
     <div id = "account-page">
+        <h1>Account</h1>
         <div class = "account-part">
             <p id = "account-display-name"></p>
             <p id = "account-username"></p>
@@ -10,7 +11,9 @@ export function page() {
         <div class = "account-part">
             <p id = "account-experiments"></p>
         </div>
-        <button id = "sign-out-button">Sign out</button>
+        <div class = "account-part">
+            <button id = "sign-out-button">Sign out</button>
+        </div>
     </div>
     `
 }
