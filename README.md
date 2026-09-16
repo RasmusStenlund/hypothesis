@@ -38,7 +38,6 @@ Use the following account information to browse demo experiments
       - Title, contributors, introduction, hypothesis, materials, method, results, discoussion, conclusion
    
   - Editing and deletion of experiments
-  - Clean UI for ease of use
   - Browse experiments
       - Quick cards with a summary of the experiment
       - Search by title and/or filter by date of creation and title
