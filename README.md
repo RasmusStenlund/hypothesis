@@ -1,73 +1,71 @@
 # Hypothesis
-Hypothesis is a web application for documenting and organizing experiments. 
+Hypothesis is a web application I made to help me and others easily log and edit experiments and different tests!
 
-[Website](https://hypothesis.dino.icu) | [API docs](https://hypothesis.nordicpine.hackclub.app/docs)
+[Website](https://hypothesis.dino.icu)
+[API docs](https://hypothesis.nordicpine.hackclub.app/docs)
 
-<img src = "./docs/images/new-experiment-screenshot.png" alt = "New experiment page">
-
-## Features
-
-### Accounts & Authentication
-- Account creation featuring display name, username and email
-- Secure password storage with modern hashing
-- Protected actions using JWT tokens *(Sessions expire after 60 minutes)*
-
-### Experiment management
-- Create new experiments with multiple fields
-- Create, edit and delete experiments
-- Search through experiments and sort by date or title
-- Clean, summarized cards for effective browsing
-
-### Scientific structure
-- Title & Date
-- Contributors
-- Introduction & Hypothesis
-- Materials & Method
-- Results, Discussion & Conclusion
+<img src = "./docs/images/new-experiment-screenshot.png" alt = "New experiment page" width = "700">
 
 ## Demo account
 
-Use the following account to explore Hypothesis:
+Use the following account information to browse demo experiments
 
 **Username**: demo
 
 **Password**: demo1234
 
-The experiments in this account are fictional examples to showcase the features of Hypothesis
-
-> Please don't modify or delete any existing demo experiment. If you create any experiments while testing, please remove them when you're finished.
+> If you are using the demo account, please don't modify, delete or edit the existing demo experiments in any way, and if you create new ones, please delete them when youre finished
 
 ## How to use
 
-1. Sign in / Sign up
-2. Click '+ New experiment' button to start creating
-3. Fill out fields and click create experiment
-4. Click 'Experiments' header to view your newly created experiment
-5. Search and sort your experiments using the navigation tools on experiments page
+1. Go do the sign up page and create an account (or go to sign in and sing in using existing account)
+2. Click the '+ New experiment' button to create a new experiment
+3. Input all information into the fields
+4. Click create experiment to add it to the database
+5. Naviagte to the experiments tab to view all saved experiments and click on a card to view one
+
+
+## Features
+- Accounts
+  - Username and password for secure login
+  - Keeping your experiments private and only edited by yourself
+  - A currently unused email adress
+  - Protected using JWT tokens - Sessions expire after 60 min
+ 
+- Experiments
+  - Multiple scientific fields
+      - Title, contributors, introduction, hypothesis, materials, method, results, discoussion, conclusion
+   
+  - Editing and deletion of experiments
+  - Clean UI for ease of use
+  - Browse experiments
+      - Quick cards with a summary of the experiment
+      - Search by title and/or filter by date of creation and title
+   
 
 ## Installation
-Clone the repository into your workspace: 
-```bash
-git clone https://github.com/RasmusStenlund/hypothesis.git
-
-cd hypothesis
-```
 
 ### Prerequisites
 - Python 3.10+
 - pip
 - Git
-- A modern web browser
+- A web browser
 
+### Install files
+Clone the repository
+```bash
+git clone https://github.com/RasmusStenlund/hypothesis.git
+cd hypothesis
+```
 ### Backend setup
-In the app folder you will need to create a .env file that features a secret key for hashing JWT tokens *(This is just a placeholder key)*:
+You need to create a new file named .env and add the following code to it, but replace the placeholder key with a custom hash key
 
 **.env**
-```ini
-secret_key = "super_secret_hash_key"
+```bash
+secret_key = "placeholder_hash_key"
 ```
 
-Setup API:
+API setup:
 ```bash
 cd app
 
@@ -77,23 +75,20 @@ venv\Scripts\activate
 #mac/linux
 source venv/bin/activate
 
-
 pip install -r requirements.txt
 
 uvicorn main:app --reload
 ```
 
 ### Frontend setup
-This project was made in vanilla HTML, JavaScript and CSS, so only local server setup is needed. You will, however, need to change the url location in extra_functions.js to the url you host on, if locally:
+This project was made in vanilla HTML, JavaScript and CSS, so no special stup is needed. You will need to change the url for API if you host the API yourself or on another server, if you host locally the url you need is below.
 
 **extra_functions.js**
 ``` js
 const url = "http://127.0.0.1:8000"
 ```
 
-## Future improvements
-- Longer time logged in using session tokens
-- Tags for experiments such as Biology, Chemistry, Bacteria
-- Add other users to edit experiments
-- Email authentication and password changing
+## Possible future improvements
 - Images for experiments
+- Tags you can filter by, e.g Biology, Chemistry
+- Maybe a usecase for email authentication and password reset
