@@ -61,7 +61,7 @@ cd hypothesis
 You need to create a new file named .env and add the following code to it, but replace the placeholder key with a custom hash key
 
 **.env**
-```bash
+```
 secret_key = "placeholder_hash_key"
 ```
 
@@ -81,10 +81,10 @@ uvicorn main:app --reload
 ```
 
 ### Frontend setup
-This project was made in vanilla HTML, JavaScript and CSS, so no special stup is needed. You will need to change the url for API if you host the API yourself or on another server, if you host locally the url you need is below.
+This project was made in vanilla HTML, JavaScript and CSS, so no special setup is needed. You will need to change the url for API if you host the API yourself or on another server, if you host locally the url you need is below.
 
 **extra_functions.js**
-``` js
+``` 
 const url = "http://127.0.0.1:8000"
 ```
 
