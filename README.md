@@ -19,8 +19,9 @@ Use the following account information to browse demo experiments
 ## How to use
 
 1. Go do the sign up page and create an account (or go to sign in and sing in using existing account)
-2. Click the '+ New experiment' button to create a new experiment
+2. Navigate to the + New Experiments tab to start creating a new experiment
 3. Input all information into the fields
+   - You don't need to input all information at first, you can e.g add hypothesis and then later add results, method and that
 4. Click create experiment to add it to the database
 5. Naviagte to the experiments tab to view all saved experiments and click on a card to view one
 
